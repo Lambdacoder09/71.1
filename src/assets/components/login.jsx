@@ -2,7 +2,6 @@ import { memo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { withFormik } from "formik";
 import * as Yup from "yup";
-import { FaAmazon } from "react-icons/fa";
 import Input from "../components/Input";
 
 
@@ -38,19 +37,23 @@ export const LoginPage = memo(
   }) => {
     return (
       <div
-        className="flex justify-center items-center bg-cover bg-no-repeat bg-center w-full h-screen bg-blue-500"
+        className="flex justify-center items-center w-full h-screen bg-white"
       >
-        <div className="top-4 right-4 absolute">
+        <div className="top-4 left-4 absolute">
           <Link
             to="/"
-            className="text-white focus:text-gray-800 text-sm hover:underline"
+            className="text-gray-800 text-sm hover:underline"
           >
             Continue without login
           </Link>
         </div>
 
-        <div className="flex flex-col gap-6 px-4 w-full max-w-md text-white">
-          <FaAmazon className="mx-auto mb-6 text-9xl" />
+        <div className="flex flex-col gap-6 px-4 w-full max-w-md text-black">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20250504041148" 
+          alt="Amazon logo" 
+          className="h-16 mx-auto mb-6" 
+        />
           <h1 className="font-bold text-2xl text-center">
             Login to Your Account
           </h1>
@@ -83,7 +86,7 @@ export const LoginPage = memo(
             />
 
             <div className="text-sm text-center">
-              <Link to="/forgot-password" className="hover:underline">
+              <Link to="/forgot-password" className="hover:underline text-cyan-600">
                 Forgot password?
               </Link>
             </div>
@@ -91,7 +94,7 @@ export const LoginPage = memo(
             <button
               type="submit"
               disabled={!isValid || isSubmitting}
-              className="bg-white disabled:opacity-60 py-3 rounded w-full font-semibold text-[#38A5FF] disabled:cursor-not-allowed"
+              className="bg-yellow-400 disabled:opacity-60 py-3 rounded w-full font-semibold text-black disabled:cursor-not-allowed hover:bg-yellow-300 transition"
             >
               LOGIN
             </button>
@@ -100,7 +103,7 @@ export const LoginPage = memo(
               Don't have an account?
               <Link
                 to="/signup"
-                className="ml-1 underline hover:underline-offset-2"
+                className="ml-1 underline hover:underline-offset-2 text-cyan-600"
               >
                 SignUp
               </Link>

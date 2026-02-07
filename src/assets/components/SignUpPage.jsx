@@ -1,6 +1,5 @@
 import { memo } from "react";
-import { Link } from "react-router-dom";
-import { FaAmazon } from "react-icons/fa";
+import { useNavigate, Link } from "react-router-dom";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../components/Input";
@@ -53,19 +52,18 @@ const SignUpPage = memo(
     handleSubmit,
     isSubmitting,
     isValid,
+    navigate,
   }) => {
     return (
       <div
-        className="bg-blue-400 flex justify-center items-center w-full h-screen bg-cover bg-center"
+        className="bg-white flex justify-center items-center w-full h-screen"
       >
-        <div className="absolute top-4 right-4">
-          <Link to="/" className="text-white text-sm hover:underline">
-            Continue without login
-          </Link>
-        </div>
-
-        <div className="flex flex-col gap-6 px-4 w-full max-w-md text-white">
-          <FaAmazon className="mx-auto text-9xl" />
+        <div className="flex flex-col gap-6 px-4 w-full max-w-md text-black">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20250504041148" 
+          alt="Amazon logo" 
+          className="h-16 mx-auto mb-6" 
+        />
           <h1 className="text-2xl font-bold text-center">
             Create Your Account
           </h1>
@@ -117,14 +115,14 @@ const SignUpPage = memo(
             <button
               type="submit"
               disabled={!isValid || isSubmitting}
-              className="bg-white text-[#38A5FF] py-3 rounded w-full font-semibold disabled:opacity-60"
+              className="bg-yellow-400 text-black py-3 rounded w-full font-semibold disabled:opacity-60 hover:bg-yellow-300 transition"
             >
               CREATE
             </button>
 
             <div className="text-sm text-center">
               Already have an account?
-              <Link to="/login" className="ml-1 underline">
+              <Link to="/login" className="ml-1 underline text-cyan-600">
                 Login
               </Link>
             </div>
@@ -135,9 +133,14 @@ const SignUpPage = memo(
   }
 );
 
-export default withFormik({
+const EnhancedSignUpPage = withFormik({
   mapPropsToValues: () => initialValues,
   validationSchema,
   handleSubmit: callSignupApi,
   validateOnMount: true,
 })(SignUpPage);
+
+export default function SignUpPageWithNavigate() {
+  const navigate = useNavigate();
+  return <EnhancedSignUpPage navigate={navigate} />;
+}

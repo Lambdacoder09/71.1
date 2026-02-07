@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useCart } from "./Cart/CartContext";
 
-export default function AddToCart({ addToCart, product }) {
+export default function AddToCart({ product }) {
+  const { addToCart } = useCart();
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {

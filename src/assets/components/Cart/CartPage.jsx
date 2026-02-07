@@ -1,12 +1,14 @@
 import React from "react";
+import { useCart } from "./CartContext";
 import CartList from "./CartList";
 
-function CartPage({cart , setCart}) {
+function CartPage() {
+  const { cart, removeFromCart } = useCart();
   return (
     <div className="flex justify-center items-center bg-gray-100 min-h-screen">
       {/* White Rounded Container */}
       <div className="bg-white rounded-2xl shadow-lg p-10 w-[900px] my-10">
-        <CartList cart={cart} setCart={setCart} />
+        <CartList cart={cart} removeFromCart={removeFromCart} />
       </div>
     </div>
   );

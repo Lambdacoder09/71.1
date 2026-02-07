@@ -1,21 +1,15 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
 function CartRow({
   width = "800px",
   imageUrl,
   title,
   price,
-  quantity = 1,
-  onQuantityChange, // callback from parent
+  quantity,
+  onQuantityChange,
+  onRemove,
 }) {
-  const [count, setCount] = useState(quantity);
-
-  // Notify parent whenever quantity changes
-  useEffect(() => {
-    if (onQuantityChange) {
-      onQuantityChange(count);
-    }
-  }, [count]);
+  const total = price * quantity;
 
   return (
     <div className="flex justify-center">
@@ -39,16 +33,22 @@ function CartRow({
         {/* Quantity Input */}
         <input
           type="number"
-          min={0}
-          value={count}
-          onChange={(e) => setCount(Math.max(0, Number(e.target.value)))}
+          min={1}
+          value={quantity}
+          onChange={(e) => onQuantityChange(Number(e.target.value))}
           className="border text-center py-1 w-20 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
         />
 
         {/* Total */}
-        <p className="font-bold text-lg w-24 text-center">
-          ${(price * count).toFixed(2)}
-        </p>
+        <p className="font-bold text-lg w-24 text-center">${total.toFixed(2)}</p>
+
+        {/* Remove Button */}
+        <button
+          onClick={onRemove}
+          className="text-red-500 hover:text-red-700 font-bold"
+        >
+          Remove
+        </button>
       </div>
     </div>
   );

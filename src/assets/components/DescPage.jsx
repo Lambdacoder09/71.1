@@ -4,9 +4,11 @@ import axios from "axios";
 import Loading from "./Loading";
 import DescCard from "./DescCard";
 import HomepageButton from "./Homepage";
+import { useCart } from "./Cart/CartContext";
 
-function DescPage({ addToCart }) {
+function DescPage() {
   const { id } = useParams();
+  const { addToCart } = useCart();
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(false);

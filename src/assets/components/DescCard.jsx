@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "./Cart/CartContext";
 
 function DescCard({ product }) {
+  const { addToCart } = useCart();
+
   return (
     <div className=" max-w-4xl  mx-auto bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row gap-8 mt-6">
 
@@ -33,23 +36,26 @@ function DescCard({ product }) {
 
         {/* Buttons */}
         <div className="flex justify-between mt-6">
-
-         
+          <button 
+            onClick={() => addToCart(product)}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Add to Cart
+          </button>
 
           {/* Prev Button (only if id > 1) */}
           <Link
-  to={product.id > 1 ? `/${product.id - 1}` : "#"}
-  className={`font-semibold ${
-    product.id > 1 ? "text-blue-600 hover:underline" : "text-gray-400 cursor-not-allowed"
-  }`}
->
-  Prev
-</Link>
-
+            to={product.id > 1 ? `/product/${product.id - 1}` : "#"}
+            className={`font-semibold ${
+              product.id > 1 ? "text-blue-600 hover:underline" : "text-gray-400 cursor-not-allowed"
+            }`}
+          >
+            Prev
+          </Link>
 
           {/* Next Button */}
           <Link
-            to={`/${product.id + 1}`}
+            to={`/product/${product.id + 1}`}
             className="text-blue-600 font-semibold hover:underline"
           >
             Next

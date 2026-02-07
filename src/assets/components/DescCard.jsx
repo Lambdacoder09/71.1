@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "./Cart/CartContext";
+import AddToCartButton from "./AddToCartButton";
 
 function DescCard({ product }) {
   const { addToCart } = useCart();
@@ -36,12 +37,7 @@ function DescCard({ product }) {
 
         {/* Buttons */}
         <div className="flex justify-between mt-6">
-          <button 
-            onClick={() => addToCart(product)}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Add to Cart
-          </button>
+          <AddToCartButton product={product} />
 
           {/* Prev Button (only if id > 1) */}
           <Link

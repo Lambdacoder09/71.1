@@ -12,8 +12,9 @@ function Header() {
         />
       </Link>
       <div>
+      
       <Link 
-        to="/CartPage"
+        to="/cart"
         className="bg-yellow-400 text-black m-2 px-4 py-2 rounded-md font-semibold hover:bg-yellow-300 transition"
       >
        Cart 

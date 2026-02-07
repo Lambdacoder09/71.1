@@ -1,28 +1,55 @@
 import React from "react";
 import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";
 
-function CartItem({ product }) {
+function CartItem({ item }) {
   const { addToCart, decrementFromCart, removeFromCart } = useCart();
+  const subtotal = item.price * item.quantity;
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md mb-4">
-      <div className="flex items-center gap-4">
-        <img src={product.thumbnail} alt={product.title} className="w-20 h-20 object-contain rounded-lg" />
-        <div>
-          <h3 className="text-lg font-semibold">{product.title}</h3>
-          <p className="text-gray-600">${product.price}</p>
+    <tr className="border-b">
+      <td className="p-4">
+        <div className="flex items-center gap-4">
+          <Link to={`/product/${item.id}`}>
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              className="w-16 h-16 object-contain rounded"
+            />
+          </Link>
+          <Link to={`/product/${item.id}`} className="font-semibold hover:text-red-600">
+            {item.title}
+          </Link>
         </div>
-      </div>
-
-      <div className="flex items-center gap-4">
+      </td>
+      <td className="p-4">${item.price.toFixed(2)}</td>
+      <td className="p-4">
         <div className="flex items-center gap-2">
-          <button onClick={() => decrementFromCart(product)} className="px-3 py-1 bg-gray-200 rounded-md">-</button>
-          <span>{product.quantity}</span>
-          <button onClick={() => addToCart(product)} className="px-3 py-1 bg-gray-200 rounded-md">+</button>
+          <button
+            onClick={() => decrementFromCart(item)}
+            className="border rounded-md px-2 py-1 hover:bg-gray-100"
+          >
+            -
+          </button>
+          <span>{item.quantity}</span>
+          <button
+            onClick={() => addToCart(item)}
+            className="border rounded-md px-2 py-1 hover:bg-gray-100"
+          >
+            +
+          </button>
         </div>
-        <button onClick={() => removeFromCart(product.id)} className="text-red-500 hover:text-red-700">Remove</button>
-      </div>
-    </div>
+      </td>
+      <td className="p-4">${subtotal.toFixed(2)}</td>
+      <td className="p-4">
+        <button
+          onClick={() => removeFromCart(item.id)}
+          className="text-red-500 hover:text-red-700"
+        >
+          x
+        </button>
+      </td>
+    </tr>
   );
 }
 

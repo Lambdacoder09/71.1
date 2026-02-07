@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 
@@ -10,18 +10,22 @@ import CartPage from "./assets/components/Cart/CartPage.jsx";
 import DescPage from "./assets/components/DescPage.jsx";
 
 function App() {
+  const location = useLocation();
+  const hideHeaderFooterRoutes = ["/cart", "/login","/signup"];
+
+  const hideHeaderFooter = hideHeaderFooterRoutes.includes(
+    location.pathname
+  );
+  
   return (
     <>
-      <Header />
-      <nav>
-        <Link to="/">Gallery</Link> | <Link to="/cart">Cart</Link>
-      </nav>
+      {!hideHeaderFooter && <Header />}
       <Routes>
         <Route path="/" element={<GalleryPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/product/:id" element={<DescPage />} />
       </Routes>
-      <Footer />
+      {!hideHeaderFooter && <Footer />}
     </>
   );
 }

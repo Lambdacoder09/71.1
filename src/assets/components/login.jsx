@@ -39,9 +39,6 @@ export const LoginPage = memo(
     return (
       <div
         className="flex justify-center items-center bg-cover bg-no-repeat bg-center w-full h-screen bg-blue-500"
-        style={{
-          backgroundImage: 'url("/images/loginbg.svg")',
-        }}
       >
         <div className="top-4 right-4 absolute">
           <Link

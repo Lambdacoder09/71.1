@@ -57,7 +57,6 @@ const SignUpPage = memo(
     return (
       <div
         className="bg-blue-400 flex justify-center items-center w-full h-screen bg-cover bg-center"
-        style={{ backgroundImage: 'url("/images/loginbg.svg")' }}
       >
         <div className="absolute top-4 right-4">
           <Link to="/" className="text-white text-sm hover:underline">

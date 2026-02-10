@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CounterButton from "./CounterButton"; // import your button component
+import CounterButton from "./CounterButton.jsx"; // import your button component
 
 function DisplayInfo({ title, description, price, img }) {
   const [num, setNum] = useState(0);

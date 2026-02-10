@@ -1,6 +1,6 @@
 import React from "react";
-import { useCart } from "./CartContext";
-import CartItem from "./CartItem";
+import { useCart } from "../../context/CartContext.jsx";
+import CartItem from "./CartItem.jsx";
 
 function CartList() {
   const { cart, getCartTotal, clearCart } = useCart();

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import Card from "./card.jsx";
-import "../../../src/App.css";
-import SearchBar from "./SearchBar.jsx";
-import SortingMenu from "./SortingMenu.jsx";
+import Card from "../components/common/Card.jsx";
+import "../App.css";
+import SearchBar from "../components/common/SearchBar.jsx";
+import SortingMenu from "../components/common/SortingMenu.jsx";
 import axios from "axios";
-import Loading from "./Loading.jsx";
+import Loading from "../components/common/Loading.jsx";
 
 export default function GalleryPage({addToCart}) {
   const [searchTerm, setSearchTerm] = useState("");

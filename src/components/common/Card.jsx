@@ -1,6 +1,6 @@
 import React from "react";
-import AddToCart from "./AddToCartButton";
-import DescButton from "./DescButton";
+import AddToCart from "./AddToCartButton.jsx";
+import DescButton from "./DescButton.jsx";
 function Card({ title, imageUrl, category, price, product, addToCart }) {
   return (
     <div className="flex flex-col justify-between bg-white rounded-xl shadow-md shadow-neutral-300 w-full max-w-xs p-4 transition-transform transform hover:scale-105">

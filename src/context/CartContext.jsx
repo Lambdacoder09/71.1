@@ -42,12 +42,15 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) =>
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
 
-  const clearCart = () =>
-    dispatch({ type: "CLEAR_CART" });
+  const clearCart = () => dispatch({ type: "CLEAR_CART" });
+
+  const getCartTotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart }}
+      value={{ cart, addToCart, removeFromCart, clearCart, getCartTotal }}
     >
       {children}
     </CartContext.Provider>

@@ -1,9 +1,9 @@
 import { AuthProvider } from "./AuthContext";
-import { CartProvider } from "../assets/components/Cart/CartContext";
+import { CartProvider } from "./CartContext";
 // later you can add more providers here
 // import { ThemeProvider } from "./ThemeContext";
 
-const Providers = ({ children }) => {
+const AppProviders = ({ children }) => {
   return (
     <AuthProvider>
       <CartProvider>{children}</CartProvider>
@@ -11,4 +11,4 @@ const Providers = ({ children }) => {
   );
 };
 
-export default Providers;
+export default AppProviders;

@@ -1,10 +1,10 @@
 import React from "react";
-import { useCart } from "./CartContext";
-import CartItem from "./CartItem";
+import { useCart } from "../context/CartContext";
+import CartItem from "../components/cart/CartItem";
 import { Link } from "react-router-dom";
 
 function CartPage() {
-  const { cart, getCartTotal, clearCart } = useCart();
+  const { cart, getCartTotal } = useCart();
 
   return (
     <div className="bg-gray-100 min-h-screen py-12">

@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loading from "./Loading";
-import DescCard from "./DescCard";
-import HomepageButton from "./Homepage";
+import Loading from "../components/common/Loading";
+import DescCard from "../components/common/DescCard";
+import HomepageButton from "../components/common/HomePageButton.jsx";
 
-function DescPage() {
+function DescriptionPage() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);
@@ -47,4 +47,4 @@ function DescPage() {
   );
 }
 
-export default DescPage;
+export default DescriptionPage;

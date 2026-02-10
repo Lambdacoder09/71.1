@@ -2,7 +2,7 @@ import { memo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { withFormik } from "formik";
 import * as Yup from "yup";
-import Input from "../components/Input";
+import Input from "../components/form/Input.jsx";
 
 function callSignupApi(values, { setSubmitting, props }) {
   const { navigate } = props;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "./Cart/CartContext";
+import { useCart } from "../../context/CartContext.jsx";
 import AddToCartButton from "./AddToCartButton";
 
 function DescCard({ product }) {

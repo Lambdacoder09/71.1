@@ -11,9 +11,24 @@ function CartList() {
       
       {cart.length > 0 ? (
         <div>
-          {cart.map((product) => (
-            <CartItem key={product.id} product={product} />
-          ))}
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-4">Product</th>
+                  <th className="text-left p-4">Price</th>
+                  <th className="text-left p-4">Quantity</th>
+                  <th className="text-left p-4">Subtotal</th>
+                  <th className="text-left p-4"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.map((product) => (
+                  <CartItem key={product.id} item={product} />
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <div className="flex justify-between items-center mt-6 pt-4 border-t">
             <button onClick={clearCart} className="text-red-500 hover:text-red-700">Clear Cart</button>

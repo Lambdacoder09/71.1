@@ -2,22 +2,19 @@
 import React from 'react';
 import CartItem from './CartItem';
 import { CartProvider } from '../../context/CartContext.jsx';
-import { MemoryRouter } from 'react-router-dom';
 
 export default {
   title: 'Cart/CartItem',
   component: CartItem,
   decorators: [
     (Story) => (
-      <MemoryRouter>
-        <CartProvider>
-          <table>
-            <tbody>
-              <Story />
-            </tbody>
-          </table>
-        </CartProvider>
-      </MemoryRouter>
+      <CartProvider>
+        <table>
+          <tbody>
+            <Story />
+          </tbody>
+        </table>
+      </CartProvider>
     ),
   ],
 };

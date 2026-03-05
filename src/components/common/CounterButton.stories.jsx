@@ -1,6 +1,6 @@
 import React from 'react';
 import CounterButton from './CounterButton';
-import { action } from '@storybook/addon-actions';
+import { fn } from 'storybook/test';
 
 export default {
   title: 'Common/CounterButton',
@@ -12,5 +12,5 @@ const Template = (args) => <CounterButton {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   num: 1,
-  onIncrement: action('incremented'),
+  onIncrement: fn(),
 };

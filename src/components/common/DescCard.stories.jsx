@@ -1,18 +1,15 @@
 import React from 'react';
 import DescCard from './DescCard';
 import { CartProvider } from '../../context/CartContext.jsx';
-import { MemoryRouter } from 'react-router-dom';
 
 export default {
   title: 'Common/DescCard',
   component: DescCard,
   decorators: [
     (Story) => (
-      <MemoryRouter>
-        <CartProvider>
-          <Story />
-        </CartProvider>
-      </MemoryRouter>
+      <CartProvider>
+        <Story />
+      </CartProvider>
     ),
   ],
 };

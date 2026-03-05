@@ -1,18 +1,15 @@
 import React from 'react';
 import CartList from './CartList';
-import { CartProvider } from '../../context/CartContext.jsx';
-import { MemoryRouter } from 'react-router-dom';
+import { CartContext, CartProvider } from '../../context/CartContext.jsx';
 
 export default {
   title: 'Cart/CartList',
   component: CartList,
   decorators: [
     (Story) => (
-      <MemoryRouter>
-        <CartProvider>
-          <Story />
-        </CartProvider>
-      </MemoryRouter>
+      <CartProvider>
+        <Story />
+      </CartProvider>
     ),
   ],
 };
@@ -61,11 +58,9 @@ WithItems.decorators = [
     };
 
     return (
-      <MemoryRouter>
-        <CartProviderWithItems>
-          <Story />
-        </CartProviderWithItems>
-      </MemoryRouter>
+      <CartProviderWithItems>
+        <Story />
+      </CartProviderWithItems>
     );
   },
 ];

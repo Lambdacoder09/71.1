@@ -3,8 +3,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import "../App.css";
 
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+import Header from "../components/layout/Header.jsx";
+import Footer from "../components/layout/Footer.jsx";
 
 import GalleryPage from "./GalleryPage.jsx";
 import InfoPage from "./InfoPage.jsx";

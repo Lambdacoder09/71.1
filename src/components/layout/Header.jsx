@@ -6,7 +6,8 @@ function Header() {
     <div className="flex items-center justify-between bg-white p-2 md:p-4 h-16 md:h-20">
       <Link to="/">
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20250504041148" 
+                   src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" 
+
           alt="Amazon logo" 
           className="h-10 md:h-16 ml-4 md:ml-20" 
         />

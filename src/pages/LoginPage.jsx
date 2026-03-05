@@ -50,7 +50,8 @@ export const LoginPage = memo(
 
         <div className="flex flex-col gap-6 px-4 w-full max-w-md text-black">
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20250504041148" 
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" 
+ 
           alt="Amazon logo" 
           className="h-16 mx-auto mb-6" 
         />

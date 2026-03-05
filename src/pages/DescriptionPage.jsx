@@ -54,6 +54,8 @@ function ProductDetailPage() {
 
   const handleAddToCart = useCallback(
     function (event) {
+      if (!product) return;
+
       const button = event.currentTarget;
       button.textContent = "ADDING...";
       button.disabled = true;
@@ -63,10 +65,10 @@ function ProductDetailPage() {
         button.disabled = false;
       }, 300);
 
-      addToCart(id, count);
+      addToCart(product, count);
       setCount(1);
     },
-    [addToCart, id, count]
+    [addToCart, count, product]
   );
 
   const handleProductSwitch = useCallback(
